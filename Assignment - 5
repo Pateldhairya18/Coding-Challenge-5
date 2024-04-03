@@ -1,0 +1,40 @@
+def josephus(n, k, s):
+    # Creating a list of people with index starting from s
+    people = list(range(s, s + n))
+
+    # Initializing the index of the person to be eliminated
+    kill_index = k - 1
+
+    # Loop until only one person remains
+    while len(people) > 1:
+        # Calculate the index of the person to be eliminated
+        kill_index = (kill_index + k - 1) % len(people)
+        # Eliminate the person at the kill_index
+        people.pop(kill_index)
+
+    # Return the index of the last person remaining
+    return people[0]
+
+# Taking input from the user
+N = int(input("Enter the number of people: "))
+K = int(input("Enter the elimination interval: "))
+S = int(input("Enter the starting index: "))
+
+# Solving the Josephus problem
+last_person = josephus(N, K, S)
+
+# Output the position of the last person remaining
+print("Position of the last person remaining:", last_person)
+
+
+# INPUT VALUE INSERT BY USER 
+
+#Enter the number of people: 8
+#Enter the elimination interval: 2
+#Enter the starting index: 4
+
+#OUTPUT
+#Position of the last person remaining: 5
+
+
+
